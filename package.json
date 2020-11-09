@@ -9,6 +9,16 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArtkymiaPaul/frontend-redsocial-angular.git"
+  },
+  "author": "Joaquin Flores",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ArtkymiaPaul/frontend-redsocial-angular.git"
+  },
+  "homepage": "https://github.com/ArtkymiaPaul/frontend-redsocial-angular.git",
   "private": true,
   "dependencies": {
     "@angular/animations": "~10.2.0",
