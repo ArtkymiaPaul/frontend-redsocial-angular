@@ -26,7 +26,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -119,6 +122,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "frontend-redsocial-angular"
+    }
+  },
+  "defaultProject": "frontend-redsocial-angular",
+  "cli": {
+    "analytics": "740f4cf6-1f22-419b-a438-7e8d5dfb67ab"
+  }
 }

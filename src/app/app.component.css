@@ -1,0 +1,12 @@
+/* Header */
+.navigation-menu {
+    padding: 0px 1em !important;
+    border-radius: 0px !important;
+    background: #e53c37 !important;
+    border: none;
+
+}
+
+.navigation-menu *{
+    color: white !important;
+}
