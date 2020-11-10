@@ -1,9 +1,5 @@
-export class Follow {
-    constructor(
-        public _id:string,
-        public user:string,
-        public followed:string
-    ){
-
-    }
+export interface Follow {
+    _id:string,
+    user:string,
+    followed:string
 }

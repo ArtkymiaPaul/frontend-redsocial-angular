@@ -1,0 +1,53 @@
+<div class="col-lg-5">
+    <h1 class="h1-strong">{{title}}</h1>
+
+    <div class="alert alert-success" *ngIf="status == 'success'">
+        Se han actualizado tus datos correctamente!
+    </div>
+
+    <div class="alert alert-danger" *ngIf="status == 'error'">
+        No se han podido actualizar tus datos!
+    </div>
+
+    <form class="col-lg-12" [formGroup]="userEditForm" (ngSubmit)="onSubmit()">
+        <p>
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" class="form-control" formControlName="name"/>
+            <span *ngIf="userEditForm.get('name').invalid && (userEditForm.get('name').dirty || userEditForm.get('name').touched)" class="alert alert-danger">
+                El nombre es obligatorio
+            </span>
+        </p>
+        <p>
+            <label for="surname">Apellidos</label>
+            <input type="text" id="surname" name="surname" class="form-control" formControlName="surname"/>
+            <span *ngIf="userEditForm.get('surname').invalid && (userEditForm.get('surname').dirty || userEditForm.get('surname').touched)" class="alert alert-danger">
+                El apellido es obligatorio
+            </span>
+        </p>
+        <p>
+            <label for="nick">Apodo</label>
+            <input type="text" id="nick" name="nick" class="form-control" formControlName="nick"/>
+            <span *ngIf="userEditForm.get('nick').invalid && (userEditForm.get('nick').dirty || userEditForm.get('nick').touched)" class="alert alert-danger">
+                El apodo es obligatorio
+            </span>
+        </p>
+        <p>
+            <label for="email">Correo electronico</label>
+            <input type="email" id="email" name="email" class="form-control" formControlName="email"/>
+            <span *ngIf="userEditForm.get('email').getError('required') && (userEditForm.get('email').dirty || userEditForm.get('email').touched)" class="alert alert-danger">
+                El correo es obligatorio
+            </span>
+            <span *ngIf="userEditForm.get('email').getError('pattern')" class="alert alert-danger">
+                El correo debe ser valido
+            </span>
+        </p>
+        <div *ngIf="user.image">
+            <img src="{{url + '/get-image-user/' + user.image }}" alt="{{user.image}}">
+        </div>
+        <p>
+            <label for="email">Sube tu avatar</label>
+            <input type="file" placeholder="Subir imagen" (change)="fileChangeEvent($event)"/>
+        </p>
+        <input type="submit" value="{{title}}" class="btn btn-success" [disabled]="userEditForm.invalid" />
+    </form>
+</div>
