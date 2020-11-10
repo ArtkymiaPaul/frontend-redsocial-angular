@@ -65,3 +65,8 @@ p > .btn{
     height: auto;
     width: 35px;
 }
+
+.row-flex{
+    display: flex;
+    flex-wrap: wrap;
+}

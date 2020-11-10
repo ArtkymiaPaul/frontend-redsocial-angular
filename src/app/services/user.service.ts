@@ -14,6 +14,7 @@ export class UserService {
   public stats:JSON;
   public token:string;
   
+  
   constructor(private httpClient: HttpClient) { 
     this.url = GLOBAL.url;
   }
@@ -89,5 +90,17 @@ export class UserService {
         .set('Authorization', this.getToken());
     
     return this.httpClient.put(`${this.url}/update-user/${user._id}`,params, {headers});
+  }
+
+  getUsers(page:number = null):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json')
+        .set('Authorization', this.getToken());
+    return this.httpClient.get(`${this.url}/users/${page}`, {headers});
+  }
+
+  getUser(id:string):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json')
+        .set('Authorization', this.getToken());
+    return this.httpClient.get(`${this.url}/user/${id}`, {headers});
   }
 }

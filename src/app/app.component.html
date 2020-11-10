@@ -14,7 +14,7 @@
         <a class="nav-link" href="#"><i class="fa fa-list"></i> Timeline</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fa fa-user"></i> Gente</a>
+        <a class="nav-link" [routerLink]="['/gente']" [routerLinkActive]="['active']"><i class="fa fa-user"></i> Gente</a>
       </li>
     </ul>
   </div>
@@ -34,7 +34,7 @@
     <ul class="navbar-nav ">
       <li class="avatar">
         <!-- Avatar de usuario -->
-        <img src="{{url + '/get-image-user/' + identity.image }}" alt="{{user.url}}" *ngIf="identity.image">
+        <img src="{{url + '/get-image-user/' + identity.image }}" alt="{{identity.image}}" *ngIf="identity.image">
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarUserMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
