@@ -140,7 +140,7 @@ export class UsersComponent implements OnInit {
     .subscribe(
       response =>{
         let search = this.follows.indexOf(followed);
-        if(search != 1){
+        if(search != -1){
           this.follows.splice(search,1);
         }
       },

@@ -1,56 +1,61 @@
-<div class="col-lg-8">
-    <h1 class="h1-strong">{{title}}</h1>
-
-    <div class="people">
-        <!--Listado-->
-        <div class="item-user container" *ngFor="let user of users">
-            <div class="card">
-                <div class="card-body row justify-content-between">
-                    <div class="row-flex">
-                        <div class="align-self-center image-user">
-                            <a href="#">
-                                <img *ngIf="user.image" src="{{url + '/get-image-user/' + user.image}}" alt="{{user.image}}">
-                                <img *ngIf="!user.image" class="avatar-default" src="assets/user.png" alt="user_default">
-                            </a>
-                        </div>
-                        <div class="align-self-center card-title username">
-                            <p class="name-surname">
+<div class="row-flex">
+    <div class="col-lg-8">
+        <h1 class="h1-strong">{{title}}</h1>
+        <div class="people">
+            <!--Listado-->
+            <div class="item-user container" *ngFor="let user of users">
+                <div class="card">
+                    <div class="card-body row justify-content-between">
+                        <div class="row-flex">
+                            <div class="align-self-center image-user">
                                 <a href="#">
-                                    {{user.name + ' ' + user.surname}}
+                                    <img *ngIf="user.image" src="{{url + '/get-image-user/' + user.image}}" alt="{{user.image}}">
+                                    <img *ngIf="!user.image" class="avatar-default" src="assets/user.png" alt="user_default">
                                 </a>
-                            </p>
-                            <p class="nickname">
-                                {{user.nick}}
-                            </p>
+                            </div>
+                            <div class="align-self-center card-title username">
+                                <p class="name-surname">
+                                    <a href="#">
+                                        {{user.name + ' ' + user.surname}}
+                                    </a>
+                                </p>
+                                <p class="nickname">
+                                    {{user.nick}}
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <!--SEGUIR/DEJAR DE SEGUIR-->
-                    <div class="align-self-center" *ngIf="user._id != identity._id">
-                        <button (click)="followUser(user._id)" class="btn btn-success btn-span" *ngIf="follows.indexOf(user._id) < 0">
-                            <i class="fa fa-plus"></i> Seguir
-                        </button>
-                        <button class="btn btn-primary btn-span" 
-                        *ngIf="follows.indexOf(user._id) >= 0"
-                        (mouseenter)="mouseEnter(user._id)"
-                        (mouseleave)="mouseLeave(user._id)"
-                        (click)="unfollowUser(user._id)"
-                        [class.btn-danger]="user._id == followUserOver"
-                        >
-                            <span *ngIf="user._id == followUserOver"><i class="fa fa-minus"></i> Dejar de seguir</span>
-                            <span *ngIf="followUserOver == '' "><i class="fa fa-check-circle"></i> Siguiendo</span>
-                        </button>
+                        <!--SEGUIR/DEJAR DE SEGUIR-->
+                        <div class="align-self-center" *ngIf="user._id != identity._id">
+                            <button (click)="followUser(user._id)" class="btn btn-success btn-span" *ngIf="follows.indexOf(user._id) < 0">
+                                <i class="fa fa-plus"></i> Seguir
+                            </button>
+                            <button class="btn btn-primary btn-span" 
+                            *ngIf="follows.indexOf(user._id) >= 0"
+                            (mouseenter)="mouseEnter(user._id)"
+                            (mouseleave)="mouseLeave(user._id)"
+                            (click)="unfollowUser(user._id)"
+                            [class.btn-danger]="user._id == followUserOver"
+                            >
+                                <span *ngIf="user._id == followUserOver"><i class="fa fa-minus"></i> Dejar de seguir</span>
+                                <span *ngIf="followUserOver == '' "><i class="fa fa-check-circle"></i> Siguiendo</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!--paginacion-->
+            <ul class="pagination pull-right">
+                <li *ngIf="page > 1" class="page-item">
+                    <a class="page-link" [routerLink]="['/gente', prev_page]">Anterior</a>
+                </li>
+                <li *ngIf="pages != page" class="page-item">
+                    <a class="page-link" [routerLink]="['/gente', next_page]">Siguiente</a>
+                </li>
+            </ul>
         </div>
-        <!--paginacion-->
-        <ul class="pagination pull-right">
-            <li *ngIf="page > 1" class="page-item">
-                <a class="page-link" [routerLink]="['/gente', prev_page]">Anterior</a>
-            </li>
-            <li *ngIf="pages != page" class="page-item">
-                <a class="page-link" [routerLink]="['/gente', next_page]">Siguiente</a>
-            </li>
-        </ul>
+       
+    </div>
+    <div class="col-lg-4">
+        <rs-sidebar></rs-sidebar>
     </div>
 </div>

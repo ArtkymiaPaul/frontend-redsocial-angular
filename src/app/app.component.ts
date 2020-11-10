@@ -4,7 +4,7 @@ import { User } from './models/user';
 import {UserService} from './services/user.service';
 import {GLOBAL} from './services/global';
 
-declare let $:any;
+
 @Component({
   selector: 'rs-root',
   templateUrl: './app.component.html',

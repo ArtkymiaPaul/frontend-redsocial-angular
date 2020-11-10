@@ -1,0 +1,28 @@
+.image-user{
+    width: 75px;
+    height: 75px;
+    border-radius: 100px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.image-user img{
+    width: 75px;
+    height: auto;
+}
+.username{
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.item-publication{
+    margin-top: .50rem;
+}
+
+.publication-text{
+    font-size: 16px;
+}
+
+.date{
+    color: gray;
+}
