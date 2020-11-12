@@ -1,0 +1,50 @@
+#data-profile{
+    text-align: center;
+}
+
+.image-user{
+    width: 125px;
+    height: 125px;
+    border-radius: 400px;
+    overflow: hidden;
+    margin-right: 15px;
+}
+
+.image-user img{
+    width: 100%;
+}
+
+.profile-user{
+    text-align: left;
+}
+
+.username{
+    font-size: 24px;
+    font-weight: bold;
+    color: #666;
+}
+
+.nick{
+    font-size: 24px;
+    font-weight: normal;
+    color:gray;
+}
+
+.follow{
+    margin-top: .50rem;
+}
+
+.stats{
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    border-left: 4px solid #ccc;
+    margin-left: 10px;
+    padding-left: 10px;
+}
+
+.stats a{
+    font-size: 20px;
+    line-height: 15px;
+    color: #555;
+}

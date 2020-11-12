@@ -1,0 +1,91 @@
+<div class="row-flex">
+    <div class="col-lg-8">
+        <h1 class="h1-strong">
+            {{title}}
+        </h1>
+        <div id="data-profile" *ngIf="user">
+            <div class="card">
+                <div class="card-body row-flex">
+                    <div class="align-self-center image-user">
+                        <img *ngIf="user.image" src="{{ url + '/get-image-user/' + user.image}}" alt="{{user.image}}">
+                        <img *ngIf="!user.image" src="assets/user.png" alt="{{identity.image}}">
+                    </div>
+                    <div class="profile-user align-self-center">
+                        <div class="badge badge-secondary" *ngIf="followed">
+                            Te sigue
+                        </div>
+                        <div>
+                            <span class="username">
+                                {{user.name + ' ' + user.surname}} 
+                            </span>
+                        </div>
+                        <div>
+                            <span class="nick">
+                                {{user.nick}} 
+                            </span>
+                        </div>
+                        <div class="follow">
+                            <button 
+                            
+                            (click)="followUser(user._id)" class="btn btn-success btn-span" *ngIf="!following">
+                                <i class="fa fa-plus"></i> Seguir
+                            </button>
+                            <button 
+                            (click)="unfollowUser(user._id)" 
+                            (mouseenter)="mouseEnter(user._id)"
+                            (mouseleave)="mouseLeave()" 
+                            class="btn btn-primary btn-span" 
+                            *ngIf="following"
+                            [class.btn-danger]="user._id == followUserOver">
+                                <span *ngIf="user._id == followUserOver">
+                                    <i class="fa fa-minus"></i> Dejar de seguir
+                                </span>
+                                <span *ngIf="user._id != followUserOver">
+                                    <i class="fa fa-check-circle"></i> Siguiendo
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div *ngIf="stats" class="stats col row-flex">
+                        <div class="following-data">
+                            <a href="#">
+                                <span class="label-stats">
+                                    Siguiendo
+                                </span>
+                                <span class="number-stats">
+                                    {{stats.following}}
+                                </span>
+                            </a>
+                        </div>
+                        <div class="following-data">
+                            <a href="#">
+                                <span class="label-stats">
+                                    Seguidores
+                                </span>
+                                <span class="number-stats">
+                                    {{stats.followed}}
+                                </span>
+                            </a>
+                        </div>
+                        <div class="following-data">
+                            <a href="#">
+                                <span class="label-stats">
+                                    Publicaciones
+                                </span>
+                                <span class="number-stats">
+                                    {{stats.publications}}
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="user">
+            <rs-publications [user]="user._id" ></rs-publications>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <rs-sidebar></rs-sidebar>
+    </div>
+</div>

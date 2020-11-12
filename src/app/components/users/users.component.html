@@ -15,7 +15,7 @@
                             </div>
                             <div class="align-self-center card-title username">
                                 <p class="name-surname">
-                                    <a href="#">
+                                    <a [routerLink]="['/perfil',user._id]">
                                         {{user.name + ' ' + user.surname}}
                                     </a>
                                 </p>
