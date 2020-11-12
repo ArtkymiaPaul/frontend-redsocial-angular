@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FollowedComponent } from './components/followed/followed.component';
+import { FollowingComponent } from './components/following/following.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -44,6 +46,15 @@ const routes: Routes = [
   {
     path: 'perfil/:id',
     component: ProfileComponent
+  },
+  {
+    path: 'siguiendo/:id/:page',
+    component: FollowingComponent
+  }
+  ,
+  {
+    path: 'seguidores/:id/:page',
+    component: FollowedComponent
   },
   {
     path: '**',

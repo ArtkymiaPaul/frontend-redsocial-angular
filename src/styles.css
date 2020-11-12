@@ -71,3 +71,8 @@ p > .btn{
     flex-wrap: wrap;
     flex:auto;
 }
+
+.row-flex-noauto{
+    display: flex;
+    flex-wrap: wrap;
+}

@@ -46,9 +46,9 @@
                             </button>
                         </div>
                     </div>
-                    <div *ngIf="stats" class="stats col row-flex">
+                    <div *ngIf="stats" class="stats col row-flex-noauto">
                         <div class="following-data">
-                            <a href="#">
+                            <a [routerLink]="['/siguiendo',user._id, 1]">
                                 <span class="label-stats">
                                     Siguiendo
                                 </span>
@@ -58,7 +58,7 @@
                             </a>
                         </div>
                         <div class="following-data">
-                            <a href="#">
+                            <a [routerLink]="['/seguidores',user._id,1]">
                                 <span class="label-stats">
                                     Seguidores
                                 </span>
@@ -68,7 +68,7 @@
                             </a>
                         </div>
                         <div class="following-data">
-                            <a href="#">
+                            <a [routerLink]="['/perfil',user._id]">
                                 <span class="label-stats">
                                     Publicaciones
                                 </span>

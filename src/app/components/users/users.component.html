@@ -8,7 +8,7 @@
                     <div class="card-body row justify-content-between">
                         <div class="row-flex">
                             <div class="align-self-center image-user">
-                                <a href="#">
+                                <a [routerLink]="['/perfil',user._id]">
                                     <img *ngIf="user.image" src="{{url + '/get-image-user/' + user.image}}" alt="{{user.image}}">
                                     <img *ngIf="!user.image" class="avatar-default" src="assets/user.png" alt="user_default">
                                 </a>
