@@ -6,7 +6,7 @@
             <img *ngIf="!identity.image" src="assets/user.png" alt="{{identity.image}}">
         </div>
         <div class="name-username align-self-end">
-            <a href="#" class="username">
+            <a [routerLink]="['/perfil',identity._id]" class="username">
                 {{identity.name + ' ' + identity.surname}}
             </a>
             <p class="nickname">
@@ -57,7 +57,7 @@
     <div class="alert alert-danger alerta-min" *ngIf="status == 'error'">
         Publicacion no enviada
     </div>
-    <form class="col-lg-10" [formGroup]="newPubForm" (ngSubmit)="onSubmit();sendPublication($event);">
+    <form class="col-lg-10" [formGroup]="newPubForm" (ngSubmit)="onSubmit($event)">
         <p>
             <label for="text">Que estas pensando hoy?</label>
             <textarea name="text" id="text" formControlName="text" class="form-control"></textarea>
@@ -67,7 +67,7 @@
         </p>
         <p>
             <label for="">Sube una imagen</label>
-            <input type="file" placeholder="Subir imagen" class="form-control"/>
+            <input type="file" placeholder="Subir imagen" (change)="fileChangeEvent($event)"/>
         </p>
 
         <input type="submit" value="Enviar" class="btn btn-success" [disabled]="newPubForm.invalid" />

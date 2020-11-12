@@ -69,4 +69,5 @@ p > .btn{
 .row-flex{
     display: flex;
     flex-wrap: wrap;
+    flex:auto;
 }

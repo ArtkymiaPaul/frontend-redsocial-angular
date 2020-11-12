@@ -27,6 +27,7 @@ export class TimelineComponent implements OnInit {
   public noMore:boolean
   public itemsPerPage:number;
   public publications:Publication[];
+  public showImage;
 
   constructor(
     private _route:ActivatedRoute,
@@ -89,16 +90,33 @@ export class TimelineComponent implements OnInit {
     
     this.page ++;
     this.getPublications(this.page,true);
-    if(this.publications.length == this.total){
+    if(this.page == this.pages){
       this.noMore = true;
     }
     
   }
 
-  refresh(event){
+  refresh(event = null){
     this.page = 1;
     this.noMore = false;
     this.getPublications(this.page);
+  }
+
+  showThisImage(id){
+    this.showImage = this.showImage == id?"":id;
+  }
+
+
+  deletePublication(id:string){
+    this.publicationService.deletePublication(this.token,id)
+    .subscribe(
+      response =>{
+        this.refresh();
+      },
+      error =>{
+        console.log(<any>error);
+      }
+    );
   }
 
 }

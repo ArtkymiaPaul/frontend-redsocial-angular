@@ -16,11 +16,11 @@
                                 <img *ngIf="!publication.user.image" class="avatar-default" src="assets/user.png" alt="user_default">
                             </a>
                         </div>
-                        <div class="">
+                        <div>
                             <div>
-                                <span class="username">
+                                <a [routerLink]="['/perfil',publication.user._id]" class="username">
                                     {{publication.user.name + ' ' + publication.user.surname}} 
-                                </span>
+                                </a>
                                 &nbsp;|&nbsp;
                                 <span class="username date">
                                     {{(publication.created_at | amFromUnix) | amLocale:'es' | amTimeAgo}}
@@ -30,10 +30,54 @@
                                  {{publication.text}}
                              </h4>
                         </div>
+                        <div class="row-flex align-items-start justify-content-end"  *ngIf="publication.user._id == identity._id">
+                            <div>
+                                <button class="btn btn-danger" 
+                                type="button"
+                                attr.data-target="#deletePublicationModal{{publication._id}}"
+                                data-toggle="modal"
+                                >
+                                    <i class="fa fa-remove"></i>
+                                </button>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="card-img-top" *ngIf="publication.file && showImage != publication._id">
+                        <button class="btn btn-warning"
+                        (click)="showThisImage(publication._id)"
+                        [class.btn-danger]="showImage == publication._id">
+                            <i class="fa fa-image"></i>
+                        </button>
+                     </div>
+                    <div class="card-img-top" *ngIf="publication.file && showImage == publication._id" >
+                        <img 
+                         src="{{url + '/get-image-pub/' + publication.file}}" alt="{{publication.file}}">
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="{{'deletePublicationModal' + publication._id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Esta seguro de eliminar esta publicación?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                        Al dar click en Eliminar perderas tu plublicación para siempre
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger" 
+                        data-dismiss="modal"
+                        (click)="deletePublication(publication._id)">Eliminar</button>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12 text-center">
+            <div class="col-lg-12 text-center" *ngIf="publications && publications.length > 0">
                 <p>
                     <button *ngIf="!noMore" (click)="viewMore()" class="btn btn-success">
                         Ver mas publicaciones
@@ -46,3 +90,4 @@
         <rs-sidebar (sended)="refresh($event)"></rs-sidebar>
     </div>
 </div>
+
