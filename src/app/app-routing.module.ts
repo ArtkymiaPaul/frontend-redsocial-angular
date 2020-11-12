@@ -9,6 +9,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { UsersComponent } from './components/users/users.component';
+import { UserGuard } from './services/user.guard';
 
 const routes: Routes = [
   {
@@ -29,36 +30,44 @@ const routes: Routes = [
   },
   {
     path: 'mis-datos',
-    component: UserEditComponent
+    component: UserEditComponent,
+    canActivate:[UserGuard]
   },
   {
     path: 'gente',
-    component: UsersComponent
+    component: UsersComponent,
+    canActivate:[UserGuard]
   },
   {
     path: 'gente/:page',
-    component: UsersComponent
+    component: UsersComponent,
+    canActivate:[UserGuard]
   },
   {
     path: 'timeline',
-    component: TimelineComponent
+    component: TimelineComponent,
+    canActivate:[UserGuard]
   },
   {
     path: 'perfil/:id',
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate:[UserGuard]
   },
   {
     path: 'siguiendo/:id/:page',
-    component: FollowingComponent
+    component: FollowingComponent,
+    canActivate:[UserGuard]
   }
   ,
   {
     path: 'seguidores/:id/:page',
-    component: FollowedComponent
+    component: FollowedComponent,
+    canActivate:[UserGuard]
   },
   {
     path: 'mensajes',
-    loadChildren: () => import('./message/message.module').then(m => m.MessageModule)
+    loadChildren: () => import('./message/message.module').then(m => m.MessageModule),
+    canActivate:[UserGuard]
   },
   {
     path: '**',

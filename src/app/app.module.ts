@@ -22,6 +22,11 @@ import { FollowedComponent } from './components/followed/followed.component';
 import { MessageModule } from './message/message.module';
 //---------------------------------
 
+//servicios
+import {UserService} from './services/user.service';
+import {UserGuard} from './services/user.guard';
+//---------------------------------------
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +51,10 @@ import { MessageModule } from './message/message.module';
     MomentModule,
     MessageModule
   ],
-  providers: [],
+  providers: [
+    UserService,
+    UserGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
