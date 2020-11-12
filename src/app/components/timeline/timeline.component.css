@@ -15,6 +15,10 @@
     font-size: 12px;
 }
 
+.date{
+    color: gray;
+}
+
 .item-publication{
     margin-top: .50rem;
 }
@@ -23,9 +27,7 @@
     font-size: 16px;
 }
 
-.date{
-    color: gray;
-}
+
 
 .card-img-top{
     max-width: 200px;

@@ -19,6 +19,7 @@ import { PublicationsComponent } from './components/publications/publications.co
 import { ProfileComponent } from './components/profile/profile.component';
 import { FollowingComponent } from './components/following/following.component';
 import { FollowedComponent } from './components/followed/followed.component';
+import { MessageModule } from './message/message.module';
 //---------------------------------
 
 @NgModule({
@@ -42,7 +43,8 @@ import { FollowedComponent } from './components/followed/followed.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    MomentModule
+    MomentModule,
+    MessageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

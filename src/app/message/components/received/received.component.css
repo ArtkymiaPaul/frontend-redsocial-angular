@@ -1,0 +1,46 @@
+.item-user{
+    margin-bottom: .50rem;
+}
+
+.image-user{
+    width: 75px;
+    height: 75px;
+    border-radius: 100px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.image-user img{
+    width: 75px;
+    height: auto;
+}
+
+.username{
+    margin-top: 10px;
+}
+
+.name-surname a{
+    color: #555;
+    font-weight: bold;
+}
+
+.nickname{
+    color: #969393;
+}
+
+.avatar-default{
+    width: 100%;
+}
+
+.page-item, .btn-span{
+    margin-left: .25rem;
+}
+
+.username{
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.date{
+    color: gray;
+}

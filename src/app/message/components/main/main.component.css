@@ -1,0 +1,7 @@
+.list-group-item.active a{
+    color: white;
+}
+
+.list-group-item a{
+    text-decoration: none;
+}

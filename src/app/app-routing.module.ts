@@ -57,6 +57,10 @@ const routes: Routes = [
     component: FollowedComponent
   },
   {
+    path: 'mensajes',
+    loadChildren: () => import('./message/message.module').then(m => m.MessageModule)
+  },
+  {
     path: '**',
     component: HomeComponent
   }

@@ -52,4 +52,10 @@ export class FollowService {
     return this.httpClient.get(url,{headers});
   }
 
+  getMyFollows(token:string): Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json')
+        .set('Authorization', token);
+    return this.httpClient.get(`${this.url}/get-my-follows/true`,{headers});
+  }
+
 }
